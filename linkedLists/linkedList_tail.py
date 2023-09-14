@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+
 
 #The below code is a small amendment from the previous implementation of 
 #linked lists in the sense that this has a tail pointer also attached to the same. 
@@ -171,11 +171,11 @@ class LinkedList:
             print("Nope not happening")
 
 
-
-
 # Main Program begins here 
 l3 = LinkedList()
 l3.pushFront("Sunday")
-l3.popBack()
+
+l3.pushFront("Monday")
+
 
 
