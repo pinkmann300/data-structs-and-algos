@@ -1,3 +1,8 @@
+#!/usr/bin/python3
+
+#The below code is a small amendment from the previous implementation of 
+#linked lists in the sense that this has a tail pointer also attached to the same. 
+
 class Node:
     def __init__(self, data, next):
         self.data = data
@@ -6,13 +11,14 @@ class Node:
 class LinkedList:
     def __init__(self):
         self.head = None 
+        self.tail = None 
 
 
     #Function name: isEmpty
     #Output: Returns if the linked list doesn't have any elements.
     #Complexity: O(1)
     def isEmpty(self):
-        return (self.head is None)
+        return (self.head is None) and (self.tail is None)
     
 
     #Function name: pushFront 
@@ -22,6 +28,7 @@ class LinkedList:
         newNode = Node(data,None)
         if self.isEmpty():
             self.head = newNode 
+            self.tail = newNode
         else:
             temp = self.head 
             newNode.next = temp 
@@ -39,22 +46,26 @@ class LinkedList:
     #Output : Returns a linked list with the first element removed.
     #Complexity: O(1)
     def popFront(self):
-        self.head = self.head.next 
+        if (self.tail == self.head) and (not self.isEmpty()):
+            self.head = None 
+            self.tail = None 
+        else:
+            self.head = self.head.next 
         return self
 
 
     #Function name: pushBack 
     #Output: Returns the linked list with the parameter value added as a node at the back of the linked list.
-    #Complexity: O(n)
+    #Complexity: O(1)
     def pushBack(self, key):
         newNode = Node(key,None)
         if self.isEmpty():
             self.head = newNode
+            self.tail = newNode
         else:
-            current = self.head 
-            while current.next is not None:
-                current = current.next 
-            current.next = newNode 
+            last = self.tail 
+            last.next = newNode
+            self.tail = newNode
         return 
     
 
@@ -65,12 +76,17 @@ class LinkedList:
         if self.isEmpty():
             return self
         else:
-            current = self.head 
-            while ((current.next).next) is not None:
-                current = current.next 
-            current.next = None 
-            return
+            if (self.head == self.tail) and (not self.isEmpty()):
+                self.tail = None
+                self.head = None
+            else:
+                current = self.head 
+                while current.next.next is not None:
+                    current = current.next
+                current.next = None
+                self.tail = current
         
+        return self
 
     #Function name: TopBack 
     #Output: Returns the value of the last node in the linked list.
@@ -79,10 +95,7 @@ class LinkedList:
         if self.isEmpty():
             return None 
         else: 
-            current = self.head 
-            while (current.next) is not None:
-                current = current.next 
-            return current.data 
+            return self.tail.data 
         
    
     #Function name: display
@@ -158,10 +171,11 @@ class LinkedList:
             print("Nope not happening")
 
 
-#Main program starts here 
 
+
+# Main Program begins here 
 l3 = LinkedList()
 l3.pushFront("Sunday")
-l3.pushBack("Tuesday")
-l3.addBefore("Sunday","Monday")
-l3.display()
+l3.popBack()
+
+
