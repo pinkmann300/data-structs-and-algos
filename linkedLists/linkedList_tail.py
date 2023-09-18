@@ -174,8 +174,9 @@ class LinkedList:
 # Main Program begins here 
 l3 = LinkedList()
 l3.pushFront("Sunday")
-
 l3.pushFront("Monday")
+l3.display()
+
 
 
 
