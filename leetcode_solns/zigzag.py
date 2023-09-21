@@ -32,3 +32,20 @@ Output: "A"
 
 
 """
+
+
+
+
+def convert(s: str, numRows: int) -> str:
+    converted_str = ""
+    #Initialise an empty string
+    
+    for j in range(numRows):
+        for i in range(numRows-1):
+            totalSkip = (2 * (numRows) - 2 - j)
+            converted_str = converted_str + s[j + (i * totalSkip)]
+    return converted_str
+
+
+print(convert("PAYPALISHIRING",4))
+
