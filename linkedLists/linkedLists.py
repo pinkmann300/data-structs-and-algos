@@ -156,12 +156,39 @@ class LinkedList:
                         current = current.next 
         else:
             print("Nope not happening")
+            
+
+    def swapPair(self):
+        if (self.isEmpty()):
+            return self 
+        elif (self.head.next is None):
+            return self 
+        else:
+            current = self.head 
+            while current is not None:
+                if current.next is not None:
+                    temp = current.next.data 
+                    current.next.data = current.data
+                    current.data = temp 
+                else:
+                    return self
+                
+                current = current.next.next 
+
+            return self
 
 
 #Main program starts here 
 
 l3 = LinkedList()
-l3.pushFront("Sunday")
+l3.pushBack("Monday")
 l3.pushBack("Tuesday")
-l3.addBefore("Sunday","Monday")
+l3.pushBack("Wednesday")
+l3.pushBack("Thursday")
+l3.pushBack("Friday")
 l3.display()
+
+print("\n")
+l3.swapPair()
+l3.display()
+
