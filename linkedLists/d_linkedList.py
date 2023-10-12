@@ -100,8 +100,12 @@ class dLinkedList:
 
     def addBefore(self,key,nkey):
         nodeInQue = self.findKey(key)
-        if self.head == nodeInQue:
+        if (self.head == nodeInQue) and (self.tail == nodeInQue):
             self.pushFront(nkey)
+        elif (self.head == nodeInQue):
+            newNode = Node(nkey,None,None)
+            newNode.next = nodeInQue
+            self.head = newNode
         else:
             newNode = Node(nkey,None, None)
             temp = nodeInQue.prev
@@ -110,8 +114,21 @@ class dLinkedList:
             temp.next = newNode
         
         return 
+    
+    def addAfter(self,key,nkey):
+        nodeInQue = self.findKey(key)
+        if (self.head == nodeInQue) and (self.tail == nodeInQue):
+            self.pushBack(nkey)
+        elif (self.tail == nodeInQue):
+            self.pushBack(nkey)
+        else:
+            newNode = Node(nkey, None, None)
+            temp = nodeInQue.next 
+            newNode.next = temp 
+            newNode.prev = nodeInQue
+            nodeInQue.next = newNode
 
-        
+        return 
 
 
 # Main program begins here  
@@ -125,6 +142,8 @@ l3.pushBack("Thursday")
 l3.pushBack("Friday")
 
 l3.addBefore("Monday","Sunday")
+
+l3.addAfter("Sunday", "NewNewDay")
 
 
 
