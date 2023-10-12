@@ -90,11 +90,28 @@ class dLinkedList:
             while current:
                 if current.data == key:
                     found = True 
+                    return current
                 else:
                     current = current.next 
+
+        if found == False:
+            raise Exception("Element not found in the linkedList")
+
+
+    def addBefore(self,key,nkey):
+        nodeInQue = self.findKey(key)
+        if self.head == nodeInQue:
+            self.pushFront(nkey)
+        else:
+            newNode = Node(nkey,None, None)
+            temp = nodeInQue.prev
+            newNode.prev = temp 
+            newNode.next = nodeInQue
+            temp.next = newNode
         
-        return found 
-    
+        return 
+
+        
 
 
 # Main program begins here  
@@ -107,9 +124,11 @@ l3.pushBack("Wednesday")
 l3.pushBack("Thursday")
 l3.pushBack("Friday")
 
-l3.popBack()
+l3.addBefore("Monday","Sunday")
 
-print(l3.topBack())
+
+
+
 
 l3.display()
 
