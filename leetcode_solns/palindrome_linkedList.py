@@ -26,6 +26,12 @@ The number of nodes in the list is in the range [1, 105].
 
 """
 
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+
 class Solution:
     def isPalindrome(self, head: Optional[ListNode]) -> bool: 
         arr = []
