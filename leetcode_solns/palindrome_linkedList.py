@@ -33,7 +33,7 @@ class ListNode:
 
 
 class Solution:
-    def isPalindrome(self, head: Optional[ListNode]) -> bool: 
+    def isPalindrome(self, head: [ListNode]) -> bool: 
         arr = []
         while head:
             arr.append(head.val)
