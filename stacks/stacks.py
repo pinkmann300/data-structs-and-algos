@@ -31,3 +31,21 @@ class Stack:
 
 # Main program begins here 
 
+def validParen(s):
+    eSt = Stack()
+
+    for i in range(0,len(s)):
+        if s[i] in ['(', '[']:
+            eSt.pushKey(s[i])
+        else:
+            if eSt.isEmpty():
+                return False 
+            else:
+                top = eSt.topStack()
+                eSt.popStack()
+                if (top == '[' and s[i] != ']') or (top == '(' and s[i] !=  ')'):
+                    return False
+    
+    return eSt.isEmpty()
+
+
