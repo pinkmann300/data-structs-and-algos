@@ -58,6 +58,8 @@ They form a LIFO - Last in First out system.
 Linked list implementation of stacks are more commonly prefered over the 
 array implementations in C++ because arrays are a fixed size data structure in C++.
 
+
+Each stack operation is O(1) : Push, Pop, Top, Empty
 """
 
 
