@@ -49,3 +49,15 @@ def validParen(s):
     return eSt.isEmpty()
 
 
+"""
+The above is an example of implementation of a stack with an array. 
+Stacks can be implemented using other data structures such as linkedLists. 
+
+They form a LIFO - Last in First out system. 
+
+Linked list implementation of stacks are more commonly prefered over the 
+array implementations in C++ because arrays are a fixed size data structure in C++.
+
+"""
+
+
