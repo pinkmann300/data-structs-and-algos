@@ -27,8 +27,6 @@ class Stack:
     def isEmpty(self):
         return (self.st == [])
     
-
-
 # Main program begins here 
 
 def validParen(s):
@@ -47,7 +45,6 @@ def validParen(s):
                     return False
     
     return eSt.isEmpty()
-
 
 """
 The above is an example of implementation of a stack with an array. 
