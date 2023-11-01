@@ -22,7 +22,7 @@ def binary_search(arr,val):
 
 #Main program begins here 
 
-arr1 = [2,2,3,3,3,3,3,3,32,2,2]
+arr1 = [2,2,3,3,3,3,3,3,32]
 ind_val = binary_search(arr1,3)
 
 print(ind_val)
