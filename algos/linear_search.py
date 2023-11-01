@@ -10,14 +10,12 @@ def linear_search(arr,val):
         if arr[i] == val:
             return i 
             break
-        else:
-            continue 
-    
+
     return -1
 
 # Main program begins here 
 
 arr1 = [2,3,4,5,6,7,8,8,8,9,9,9,110]
-ind_val = linear_search(arr1,110)
+ind_val = linear_search(arr1,111)
 
 print(ind_val)
