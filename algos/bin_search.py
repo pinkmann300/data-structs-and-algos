@@ -12,7 +12,7 @@ def binary_search(arr,val):
             return m 
             break 
         else:
-            if (arr[m] >= val) or (arr[m - 1] == val):
+            if (arr[m] >= val) or ((arr[m - 1] == val) and (arr[m-1] != arr[r])):
                 r = m - 1
             else:
                 l = m + 1
@@ -22,7 +22,7 @@ def binary_search(arr,val):
 
 #Main program begins here 
 
-arr1 = [2,2,3,3,3,3,3,3,32]
+arr1 = [1,3]
 ind_val = binary_search(arr1,3)
 
 print(ind_val)
